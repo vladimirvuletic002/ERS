@@ -1,0 +1,5 @@
+27-Dec-23 3:22:30 PM: Regulation: 9.16606979871451%, Timestamp: 27-Dec-23 3:22:30 PM
+27-Dec-23 3:22:31 PM: Regulation: 42.9769681035434%, Timestamp: 27-Dec-23 3:22:31 PM
+27-Dec-23 3:22:32 PM: Regulation: 69.1463583005342%, Timestamp: 27-Dec-23 3:22:32 PM
+27-Dec-23 3:22:33 PM: Regulation: 11.6777772138257%, Timestamp: 27-Dec-23 3:22:33 PM
+27-Dec-23 3:22:34 PM: Regulation: 90.0896988297299%, Timestamp: 27-Dec-23 3:22:34 PM
