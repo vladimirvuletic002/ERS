@@ -5,3 +5,10 @@ C:\Users\dusan\OneDrive\Desktop\ERS projekat\Projekat\Projekat\obj\Debug\Projeka
 C:\Users\dusan\OneDrive\Desktop\ERS projekat\Projekat\Projekat\obj\Debug\Projekat.csproj.CoreCompileInputs.cache
 C:\Users\dusan\OneDrive\Desktop\ERS projekat\Projekat\Projekat\obj\Debug\Projekat.exe
 C:\Users\dusan\OneDrive\Desktop\ERS projekat\Projekat\Projekat\obj\Debug\Projekat.pdb
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\bin\Debug\Projekat.exe.config
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\bin\Debug\Projekat.exe
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\bin\Debug\Projekat.pdb
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\obj\Debug\Projekat.csproj.AssemblyReference.cache
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\obj\Debug\Projekat.csproj.CoreCompileInputs.cache
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\obj\Debug\Projekat.exe
+C:\Users\draga\Documents\ERS\ERS\Projekat\Projekat\obj\Debug\Projekat.pdb

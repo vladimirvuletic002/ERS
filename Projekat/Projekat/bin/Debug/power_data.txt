@@ -1,5 +1,0 @@
-27-Dec-23 3:22:30 PM: Power: 74%, Timestamp: 27-Dec-23 3:22:30 PM
-27-Dec-23 3:22:31 PM: Power: 43%, Timestamp: 27-Dec-23 3:22:31 PM
-27-Dec-23 3:22:32 PM: Power: 69%, Timestamp: 27-Dec-23 3:22:32 PM
-27-Dec-23 3:22:33 PM: Power: 11%, Timestamp: 27-Dec-23 3:22:33 PM
-27-Dec-23 3:22:34 PM: Power: 90%, Timestamp: 27-Dec-23 3:22:34 PM

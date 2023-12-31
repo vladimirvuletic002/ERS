@@ -9,7 +9,7 @@ namespace Projekat.DistributionCenter
 {
     public interface IDistributionCenter
     {
-        double ElectricityPricePerKWh { get; set; }
-        void HandleRequest(IConsumer consumer);
+        bool ReceivePowerDemand(double demand);
+        void AdjustHydroelectricPlantProduction(double demand);
     }
 }

@@ -43,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consumer\ConsumerImpl.cs" />
-    <Compile Include="Consumer\IConsumer.cs" />
-    <Compile Include="DistributionCenter\DistributionCenterImpl.cs" />
+    <Compile Include="Consumer\Consumer.cs" />
+    <Compile Include="Consumer\Device.cs" />
+    <Compile Include="Consumer\IDevice.cs" />
+    <Compile Include="DistributionCenter\DistributiveCenter.cs" />
     <Compile Include="DistributionCenter\IDistributionCenter.cs" />
-    <Compile Include="HydroelectricPowerPlant\HydroelectricPowerPlantImpl.cs" />
-    <Compile Include="HydroelectricPowerPlant\IHydroelectricPowerPlant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SolarPanelsAnd WindGenerators\ISolarPanelsAnd WindGenerators.cs" />
-    <Compile Include="SolarPanelsAnd WindGenerators\SolarPanelsAnd_WindGeneratorsImpl.cs" />
+    <Compile Include="SolarPanelsAndWindGenerators\IPanelsAndGenerators.cs" />
+    <Compile Include="SolarPanelsAndWindGenerators\SolarPanel.cs" />
+    <Compile Include="SolarPanelsAndWindGenerators\WindGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,7 +1,6 @@
 ﻿using Projekat.Consumer;
 using Projekat.DistributionCenter;
-using Projekat.HydroelectricPowerPlant;
-using Projekat.SolarPanelsAnd_WindGenerators;
+using Projekat.SolarPanelsAndWindGenerators;
 using System.Threading;
 using System;
 using System.Collections.Generic;
@@ -15,22 +14,24 @@ namespace Projekat
     {
         static void Main(string[] args)
         {
-            IConsumer consumer1 = new ConsumerImpl("Consumer1");
-            IDistributionCenter distributionCenter = new DistributionCenterImpl { ElectricityPricePerKWh = 0.1 };
-            ISolarPanelsAnd_WindGenerators solarPanel = new SolarPanelsAnd_WindGeneratorsImpl();
-            IHydroelectricPowerPlant hydroelectricPowerPlant = new HydroelectricPowerPlantImpl();
+            Consumer.Consumer consumer = new Consumer.Consumer();
+            DistributiveCenter distributionCenter = new DistributiveCenter();
+            SolarPanel solarPanel1 = new SolarPanel("solarPanel1");
+            SolarPanel solarPanel2 = new SolarPanel("solarPanel2");
+            WindGenerator windGen1 = new WindGenerator("windGen1");
+            WindGenerator windGen2 = new WindGenerator("windGen2");
 
-            for (int i = 0; i < 5; i++)
-            {
-                // Simulacija sistema
-                consumer1.RequestElectricity(distributionCenter);
 
-                solarPanel.UpdatePower();
-                hydroelectricPowerPlant.UpdateRegulation();
+            Device televizor = new Device("Televizor", 4);
+            Device ves_masina = new Device("Ves masina", 6);
+            Device racunar = new Device("Racunar", 4);
+            Device grejalica = new Device("Grejalica", 7);
+            consumer.AddDevices(televizor);
+            consumer.AddDevices(ves_masina);
+            consumer.AddDevices(racunar);
+            consumer.AddDevices(grejalica);
+            consumer.UI(distributionCenter);
 
-                // Pauza između iteracija
-                Thread.Sleep(1000);
-            }
         }
     }
 }
