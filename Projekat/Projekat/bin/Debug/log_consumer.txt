@@ -1,1 +1,15 @@
 
+---1/4/2024 10:53:54 PM: - Potražnja za 40 kWh, Cena: $4.00------1/4/2024 10:53:54 PM: - Primljeno 40 kWh, Cena: $4.00---
+---1/4/2024 10:53:56 PM: - Potražnja za 100 kWh, Cena: $10.00------1/4/2024 10:53:56 PM: - Primljeno 100 kWh, Cena: $10.00---
+---1/4/2024 10:57:20 PM: - Potražnja za 40 kWh, Cena: $4.00---
+---1/4/2024 10:57:20 PM: - Primljeno 40 kWh, Cena: $4.00---
+
+---1/4/2024 10:57:32 PM: - Potražnja za 100 kWh, Cena: $10.00---
+---1/4/2024 10:57:32 PM: - Primljeno 100 kWh, Cena: $10.00---
+
+---1/4/2024 10:57:47 PM: - Potražnja za 140 kWh, Cena: $14.00---
+---1/4/2024 10:57:47 PM: - Primljeno 140 kWh, Cena: $14.00---
+
+---1/4/2024 10:58:06 PM: - Potražnja za 70 kWh, Cena: $7.00---
+---1/4/2024 10:58:06 PM: - Primljeno 70 kWh, Cena: $7.00---
+

@@ -5,32 +5,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projekat.SolarPanelsAndWindGenerators;
+using Projekat.PowerPlant;
 
 namespace Projekat.DistributionCenter
 {
     public class DistributiveCenter : IDistributionCenter
     {
-        public static double AvailablePower = 1000; 
-        public static double CostPerKWh = 0.1; 
-        public static double HydroelectricPlantUtilization = 50; 
 
+        public double SolarPower { get; set; }
+        public double WindPower { get; set; }
+        public SolarPanel SolarPanel { get; set; }
+        public WindGenerator WindGen { get; set; }
+
+        public Hydroelectric HydroEl { get; set; } = new Hydroelectric();
+        public DistributiveCenter(SolarPanel solar, WindGenerator wind)
+        {
+            this.SolarPanel = solar;
+            this.WindGen = wind;
+            this.SolarPower = 0;
+            this.WindPower = 0;
+        }
+
+        public double AvailablePower = 1000; 
+        public static double CostPerKWh = 0.1; 
+
+        //Primanje zahteva za potraznjom elektricne energije
         public bool ReceivePowerDemand(double power)
         {
             Console.WriteLine($"\nDistributivni centar: Potražnja za {power} kWh.");
+
+            GetPower(SolarPanel, WindGen);
+            Console.WriteLine($"{SolarPower}%, {WindPower}%");
+
+            AdjustHydroelectricPlantProduction();
 
             if (AvailablePower >= power)
             {
                 AvailablePower -= power;
 
-                // Računanje potrebe za prilagođavanjem rada hidroelektrane
-                //AdjustHydroelectricPlantProduction(demand);
-
+                //cena potrosnje
                 double cost = power * CostPerKWh;
                 Console.WriteLine($"Distributivni centar: Poslato {power} kWh. Cena: {cost:C}\n");
 
                 // Logovanje događaja u .txt fajl
-                LogConsumer($"{DateTime.Now}: - Potražnja za {power} kWh, Cena: {cost:C}");
-                LogConsumer($"{DateTime.Now}: - Primljeno {power} kWh, Cena: {cost:C}");
+                LogConsumer($"---{DateTime.Now}: - Potražnja za {power} kWh, Cena: {cost:C}---");
+                LogConsumer($"---{DateTime.Now}: - Primljeno {power} kWh, Cena: {cost:C}---\n");
                 return true;
             }
             else
@@ -40,35 +60,23 @@ namespace Projekat.DistributionCenter
             }
         }
 
-        public void AdjustHydroelectricPlantProduction(double demand)
+        //Dobavljanje obnovljivih izvora
+        public void GetPower(SolarPanel solarPanel, WindGenerator windGenerator)
+        {
+            SolarPower = solarPanel.Power;
+            WindPower = windGenerator.Power;
+        }
+
+        //Regulisanje rada hidroelektrane
+        public void AdjustHydroelectricPlantProduction()
         {
             
-            HydroelectricPlantUtilization += demand / 10; //Povećava iskorišćenost za 10% svaki put
-            HydroelectricPlantUtilization = Math.Max(0, Math.Min(100, HydroelectricPlantUtilization)); // Ograničava vrednosti na opseg od 0% do 100%
+            HydroEl.Power = (SolarPower + WindPower) / 2;
+            AvailablePower = AvailablePower * (HydroEl.Power/100);
+            HydroEl.Log();
 
-            
-            //Log($"{DateTime.Now}: Promena rada hidroelektrane - Iskorišćenost: {HydroelectricPlantUtilization}%");
         }
 
-        public void ReceiveSolarAndWindInformation(double solarPower, double windPower)
-        {
-            // Prima informacije o proizvodnji solarnih panela i vetrogeneratora
-            // i ažurira rad hidroelektrane na osnovu tih informacija
-            double totalRenewablePower = solarPower + windPower;
-            AdjustHydroelectricPlantProduction(totalRenewablePower);
-
-            //Log($"{DateTime.Now}: Informacije o proizvodnji solarnih panela i vetrogeneratora - Solarni paneli: {solarPower} kWh, Vetrogeneratori: {windPower} kWh");
-        }
-
-        public void CalculateAndSendEnergyCost(double demand)
-        {
-            // Računanje cene električne energije
-            double cost = demand * CostPerKWh;
-
-            Console.WriteLine($"Distributivni centar: Poslat izveštaj o ceni potrošaču. Cena: {cost:C}");
-
-            //Log($"{DateTime.Now}: Izveštaj o ceni - Potražnja: {demand} kWh, Cena: {cost:C}");
-        }
 
         public void LogConsumer(string logMessage)
         {

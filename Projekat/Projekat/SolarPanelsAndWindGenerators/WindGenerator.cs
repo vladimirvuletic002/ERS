@@ -21,7 +21,7 @@ namespace Projekat.SolarPanelsAndWindGenerators
         {
             Power = new Random().Next(0, 101);
             Name = name;
-            timer = new Timer(5000);
+            timer = new Timer(10000);
             timer.Elapsed += TimerElapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
@@ -39,7 +39,7 @@ namespace Projekat.SolarPanelsAndWindGenerators
         {
             lock (filelock)
             {
-                Power = new Random().Next(-5, 6);
+                Power += new Random().Next(-5, 6);
                 Power = Math.Max(0, Math.Min(100, Power));
                 Log();
             }
