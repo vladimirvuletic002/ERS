@@ -17,6 +17,7 @@ namespace Projekat.SolarPanelsAndWindGenerators
         public static Random random = new Random();
 
         public readonly Timer timer;
+
         public static readonly object filelock = new object();
 
         public SolarPanel(string name)
@@ -33,10 +34,11 @@ namespace Projekat.SolarPanelsAndWindGenerators
 
         public void TimerElapsed(object sender, ElapsedEventArgs e)
         {
-                UpdatePower();
+                UpdateProduction(); //Azuriranje se poziva svakih  10 sekundi
         }
 
-        public void UpdatePower()
+        // Azuriranje proizvodnje nasumicnim izborom broja -6 do 6
+        public void UpdateProduction()
         {
             lock (filelock)
             {

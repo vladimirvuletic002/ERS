@@ -9,7 +9,7 @@ namespace Projekat.SolarPanelsAndWindGenerators
     public interface IPanelsAndGenerators
     {
 
-        void UpdatePower();
+        void UpdateProduction();
         void Log();
     }
 }

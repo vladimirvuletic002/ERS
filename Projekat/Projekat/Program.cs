@@ -17,9 +17,9 @@ namespace Projekat
             Consumer.Consumer consumer = new Consumer.Consumer();
             
             SolarPanel solarPanel1 = new SolarPanel("solarPanel1");
-            //SolarPanel solarPanel2 = new SolarPanel("solarPanel2");
+            SolarPanel solarPanel2 = new SolarPanel("solarPanel2");
             WindGenerator windGen1 = new WindGenerator("windGen1");
-            //WindGenerator windGen2 = new WindGenerator("windGen2");
+            WindGenerator windGen2 = new WindGenerator("windGen2");
             DistributiveCenter distributionCenter = new DistributiveCenter(solarPanel1, windGen1);
 
 

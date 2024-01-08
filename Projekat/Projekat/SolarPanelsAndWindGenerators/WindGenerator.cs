@@ -11,11 +11,13 @@ namespace Projekat.SolarPanelsAndWindGenerators
     public class WindGenerator : IPanelsAndGenerators
     {
         public int Production { get; set; }
-
-
         public string Name { get; set; }
+
+        
         public static Random random = new Random();
+        
         public readonly Timer timer;
+        
         public static readonly object filelock = new object();
 
         public WindGenerator(string name)
@@ -33,11 +35,12 @@ namespace Projekat.SolarPanelsAndWindGenerators
         public void TimerElapsed(object sender, ElapsedEventArgs e)
         {
             
-                UpdatePower();
+                UpdateProduction(); //Azuriranje se poziva svakih  10 sekundi
             
         }
 
-        public void UpdatePower()
+        // Azuriranje proizvodnje nasumicnim izborom broja -6 do 6
+        public void UpdateProduction()
         {
             lock (filelock)
             {

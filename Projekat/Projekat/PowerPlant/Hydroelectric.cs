@@ -17,6 +17,7 @@ namespace Projekat.PowerPlant
             File.WriteAllText("hydroEl.txt", "Vreme, Proizvodnja\n");
         }
 
+        // Procenat proizvodnje mora biti u opsegu 0-100
         public void UpdateProduction(int production)
         {
             if(production >= 0 && production <= 100)

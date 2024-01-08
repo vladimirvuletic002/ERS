@@ -1,5 +1,1 @@
 Vreme, Prijem, Cena
-1/8/2024 1:53:10 AM, 2 kWh, 20RSD
-1/8/2024 1:53:20 AM, 3 kWh, 30RSD
-1/8/2024 1:53:34 AM, 6 kWh, 60RSD
-1/8/2024 1:53:48 AM, 7 kWh, 70RSD

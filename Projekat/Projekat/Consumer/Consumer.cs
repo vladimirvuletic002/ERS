@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Projekat.DistributionCenter;
 
 namespace Projekat.Consumer
 {
@@ -13,8 +12,6 @@ namespace Projekat.Consumer
     {
         public double Consumption { get; set; }
         public List<Device> Devices { get; set; } = new List<Device>();
-
-        
 
         public Consumer()
         {
@@ -35,7 +32,7 @@ namespace Projekat.Consumer
                 Console.WriteLine("\n=============================================================");
                 Console.WriteLine("Uredjaji:");
 
-                // Prikazivanje dostupnih uređaja
+                // Prikaz dostupnih uređaja
                 for (int i = 0; i < Devices.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}. {Devices[i].Name} (ON/OFF)");
@@ -47,21 +44,22 @@ namespace Projekat.Consumer
                 Console.WriteLine("\n=============================================================");
                 answer = Console.ReadLine();
                 
-                if (int.TryParse(answer, out int selectedDeviceIndex) && selectedDeviceIndex >= 1 && selectedDeviceIndex <= Devices.Count)
+                if (int.TryParse(answer, out int index) && index >= 1 && index <= Devices.Count)
                 {
-                    if (Devices[selectedDeviceIndex - 1].active == true)
+                    if (Devices[index - 1].active == true)
                     {
-                        Devices[selectedDeviceIndex - 1].TurnOff();
+                        Devices[index - 1].TurnOff();
                         
-                        Consumption -= Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
+                        Consumption -= Devices[index - 1].ConsumptionPerHour;
+                        dist.PrintDistributionStats(Consumption);
                     }
                     else
                     {
-                        Consumption += Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
+                        Consumption += Devices[index - 1].ConsumptionPerHour;
                         if (dist.ReceivePowerDemand(Consumption))
-                            Devices[selectedDeviceIndex - 1].TurnOn();
+                            Devices[index - 1].TurnOn();
                         else
-                            Consumption -= Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
+                            Consumption -= Devices[index - 1].ConsumptionPerHour;
                     }
 
                 }
