@@ -22,10 +22,10 @@ namespace Projekat.Test
         [TestCase(-50)]
         [TestCase(0)]
         [TestCase(50)]
-        public void IsItInRange(double power)
+        public void IsItInRange(int power)
         {
-            windGenerator.Power = power;
-            Assert.That(windGenerator.Power, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
+            windGenerator.Production = power;
+            Assert.That(windGenerator.Production, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
         }
 
         [TearDown]

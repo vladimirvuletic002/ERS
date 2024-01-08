@@ -10,6 +10,6 @@ namespace Projekat.DistributionCenter
     public interface IDistributionCenter
     {
         bool ReceivePowerDemand(double demand);
-        void AdjustHydroelectricPlantProduction();
+        void AdjustHydroelectricPlantProduction(double demand);
     }
 }

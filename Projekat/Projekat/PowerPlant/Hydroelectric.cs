@@ -10,15 +10,28 @@ namespace Projekat.PowerPlant
 {
     public class Hydroelectric : IHydroelectric
     {
-        public double Power { get; set; }
+        public int Production { get; set; }
 
         public Hydroelectric() {
-            this.Power = 0;
+            this.Production = 0;
+            File.WriteAllText("hydroEl.txt", "Vreme, Proizvodnja\n");
+        }
+
+        public void UpdateProduction(int production)
+        {
+            if(production >= 0 && production <= 100)
+            {
+                Production = production;
+            }
+            else
+            {
+                Console.WriteLine("Procenat proizvodnje hidroelektrane mora biti u opsegu 0-100%\n");
+            }
         }
 
         public void Log()
         {
-            string log = $"{DateTime.Now}: Power: {Power}%\n";
+            string log = $"{DateTime.Now}, {Production}%\n";
             File.AppendAllText("hydroEl.txt", log);
         }
     }

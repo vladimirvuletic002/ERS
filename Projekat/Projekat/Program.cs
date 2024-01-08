@@ -23,10 +23,10 @@ namespace Projekat
             DistributiveCenter distributionCenter = new DistributiveCenter(solarPanel1, windGen1);
 
 
-            Device televizor = new Device("Televizor", 40);
-            Device ves_masina = new Device("Ves masina", 60);
-            Device racunar = new Device("Racunar", 40);
-            Device grejalica = new Device("Grejalica", 70);
+            Device televizor = new Device("Televizor", 4);
+            Device ves_masina = new Device("Ves masina", 2);
+            Device racunar = new Device("Racunar", 3);
+            Device grejalica = new Device("Grejalica", 1);
             consumer.AddDevices(televizor);
             consumer.AddDevices(ves_masina);
             consumer.AddDevices(racunar);

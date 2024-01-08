@@ -10,21 +10,23 @@ namespace Projekat.SolarPanelsAndWindGenerators
 {
     public class WindGenerator : IPanelsAndGenerators
     {
-        public double Power { get; set; }
+        public int Production { get; set; }
+
 
         public string Name { get; set; }
-
+        public static Random random = new Random();
         public readonly Timer timer;
         public static readonly object filelock = new object();
 
         public WindGenerator(string name)
         {
-            Power = new Random().Next(0, 101);
+            Production = random.Next(0, 101);
             Name = name;
             timer = new Timer(10000);
             timer.Elapsed += TimerElapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
+            File.WriteAllText($"{Name}.txt", "Vreme, Proizvodnja\n");
 
         }
 
@@ -39,8 +41,8 @@ namespace Projekat.SolarPanelsAndWindGenerators
         {
             lock (filelock)
             {
-                Power += new Random().Next(-5, 6);
-                Power = Math.Max(0, Math.Min(100, Power));
+                Production += new Random().Next(-6, 7);
+                Production = Math.Max(0, Math.Min(100, Production));
                 Log();
             }
             
@@ -50,8 +52,8 @@ namespace Projekat.SolarPanelsAndWindGenerators
         {
             lock (filelock)
             {
-                string log = $"{DateTime.Now}: Power: {Power}%, Name: {Name}\n";
-                File.AppendAllText("windgenerators_panel.txt", log);
+                string log = $"{DateTime.Now}, {Production}%\n";
+                File.AppendAllText($"{Name}.txt", log);
             }
             
         }

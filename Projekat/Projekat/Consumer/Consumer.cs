@@ -11,14 +11,14 @@ namespace Projekat.Consumer
 {
     public class Consumer
     {
-        public int Potrosnja { get; set; }
+        public double Consumption { get; set; }
         public List<Device> Devices { get; set; } = new List<Device>();
 
         
 
         public Consumer()
         {
-            Potrosnja = 0;
+            Consumption = 0;
         }
 
         public void AddDevices(Device device)
@@ -31,6 +31,8 @@ namespace Projekat.Consumer
             string answer;
             do
             {
+
+                Console.WriteLine("\n=============================================================");
                 Console.WriteLine("Uredjaji:");
 
                 // Prikazivanje dostupnih uređaja
@@ -42,20 +44,24 @@ namespace Projekat.Consumer
 
                 // Unos korisničkog izbora
                 Console.Write("Unesite redni broj uređaja za uključivanje/isključivanje: ");
+                Console.WriteLine("\n=============================================================");
                 answer = Console.ReadLine();
+                
                 if (int.TryParse(answer, out int selectedDeviceIndex) && selectedDeviceIndex >= 1 && selectedDeviceIndex <= Devices.Count)
                 {
                     if (Devices[selectedDeviceIndex - 1].active == true)
                     {
                         Devices[selectedDeviceIndex - 1].TurnOff();
                         
-                        Potrosnja -= Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
+                        Consumption -= Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
                     }
                     else
                     {
-                        Potrosnja += Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
-                        if (dist.ReceivePowerDemand(Potrosnja))
+                        Consumption += Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
+                        if (dist.ReceivePowerDemand(Consumption))
                             Devices[selectedDeviceIndex - 1].TurnOn();
+                        else
+                            Consumption -= Devices[selectedDeviceIndex - 1].ConsumptionPerHour;
                     }
 
                 }

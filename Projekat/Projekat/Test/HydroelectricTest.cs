@@ -24,10 +24,10 @@ namespace Projekat.Test
         [TestCase(-50)]
         [TestCase(0)]
         [TestCase(50)]
-        public void IsItInRange(double power)
+        public void IsItInRange(int power)
         {
-            hydroelectric.Power = power;
-            Assert.That(hydroelectric.Power, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
+            hydroelectric.Production = power;
+            Assert.That(hydroelectric.Production, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
         }
 
         [TearDown]

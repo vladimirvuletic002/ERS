@@ -8,6 +8,8 @@ namespace Projekat.PowerPlant
 {
     public interface IHydroelectric
     {
+
+        void UpdateProduction(int production);
         void Log();
     }
 }

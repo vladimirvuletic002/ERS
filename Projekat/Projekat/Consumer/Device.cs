@@ -9,11 +9,11 @@ namespace Projekat.Consumer
     public class Device : IDevice
     {
         public string Name { get; set; }
-        public int ConsumptionPerHour { get; set; }
+        public double ConsumptionPerHour { get; set; }
 
         public bool active { get; set; }
 
-        public Device(string name, int consumption)
+        public Device(string name, double consumption)
         {
             this.Name = name;
             this.ConsumptionPerHour = consumption;

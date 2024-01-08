@@ -24,10 +24,10 @@ namespace Projekat.Test
         [TestCase(-50)]
         [TestCase(0)]
         [TestCase(50)]
-        public void IsItInRange(double power)
+        public void IsItInRange(int power)
         {
-            solarPanel.Power = power;
-            Assert.That(solarPanel.Power, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
+            solarPanel.Production = power;
+            Assert.That(solarPanel.Production, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
         }
 
         [TearDown]
