@@ -20,14 +20,11 @@ namespace Projekat.PowerPlant
         // Procenat proizvodnje mora biti u opsegu 0-100
         public void UpdateProduction(int production)
         {
-            if(production >= 0 && production <= 100)
+            if(production < 0 || production > 100)
             {
-                Production = production;
+                throw new ArgumentOutOfRangeException("Procenat proizvodnje hidroelektrane je van opsega!");
             }
-            else
-            {
-                Console.WriteLine("Procenat proizvodnje hidroelektrane mora biti u opsegu 0-100%\n");
-            }
+            Production = production;
         }
 
         public void Log()

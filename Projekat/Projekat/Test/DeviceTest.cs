@@ -15,18 +15,20 @@ namespace Projekat.Test
         public Consumer.Device dev;
 
         [Test]
-        [TestCase("Televizor",4)]
-        [TestCase("Ves masina", 6)]
-        [TestCase("Racunar", 4)]
-        [TestCase("Grejalica", 7)]
-
-
-
-        public void CheckState(string name, int consumption)
+        public void IsTurnedOn()
         {
-            dev = new Device(name, consumption);
+            dev = new Device("Televizor",4);
+            dev.TurnOn();
 
             ClassicAssert.AreEqual(dev.active, true);
+        }
+
+        public void IsTurnedOff()
+        {
+            dev = new Device("Grejalica", 1);
+            dev.TurnOff();
+
+            ClassicAssert.AreEqual(dev.active, false);
         }
 
         [TearDown]

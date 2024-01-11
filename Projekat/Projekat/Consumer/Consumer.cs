@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Projekat.Consumer
 {
-    public class Consumer
+    public class Consumer : IConsumer
     {
         public double Consumption { get; set; }
         public List<Device> Devices { get; set; } = new List<Device>();

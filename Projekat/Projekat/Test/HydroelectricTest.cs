@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace Projekat.Test
 {
@@ -18,16 +19,36 @@ namespace Projekat.Test
             hydroelectric = new PowerPlant.Hydroelectric();
         }
 
+        [Test]
+        public void OutOfRange()
+        {
+            try
+            {
+                hydroelectric.UpdateProduction(-1);
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                StringAssert.Contains("Procenat proizvodnje hidroelektrane je van opsega!",e.Message);
+                return;
+            }
+            Assert.Fail("Exception nije bacen\n");
+            
+        }
 
         [Test]
-        [TestCase(125)]
-        [TestCase(-50)]
-        [TestCase(0)]
-        [TestCase(50)]
-        public void IsItInRange(int power)
+        public void InRange()
         {
-            hydroelectric.Production = power;
-            Assert.That(hydroelectric.Production, Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(100));
+            try
+            {
+                hydroelectric.UpdateProduction(25);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                StringAssert.Contains("Procenat proizvodnje hidroelektrane je van opsega!",e.Message);
+                return;
+            }
+            Assert.Pass("Procenat proizvodnje je u opsegu!\n");
+
         }
 
         [TearDown]

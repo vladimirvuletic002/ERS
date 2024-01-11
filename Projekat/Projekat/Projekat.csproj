@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Consumer\Consumer.cs" />
     <Compile Include="Consumer\Device.cs" />
+    <Compile Include="Consumer\IConsumer.cs" />
     <Compile Include="Consumer\IDevice.cs" />
     <Compile Include="DistributionCenter\DistributiveCenter.cs" />
     <Compile Include="DistributionCenter\IDistributionCenter.cs" />
